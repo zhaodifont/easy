@@ -6,6 +6,15 @@
 <meta name= "author" content="lzd" >
 <meta name= "viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name= "format-detection" content= "telephone=no" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?24e21cea6b8b6bcfa760f23db9581dfb";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 <style>
 /* baseCss */
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,figure,figcaption,small,button,input,textarea,th,td,s{margin:0;padding:0}
@@ -40,9 +49,11 @@ img{vertical-align: top}
 .btn_wpr a{width:3.04rem;height:1rem;text-align: center;line-height: 1rem;background-color: #43ac43;font-size: .4rem;color:#fff;border-radius: .8rem;}
 .btn_wpr a:nth-child(1){background-color: #009b4d;}
 .container{transition: all .5s;-webkit-transition: all .5s;}
+.fixMask{position: fixed;z-index:6666;left:0;top:0;bottom:0;right:0;background-color: rgba(255,255,255,.6);display: flex;align-items: center;justify-content: center;}
+.fixMask img{position:relative;top:-10%;}
   </style>
   </head>
-  <body>
+<body>
 <script>
 !function(e,t){var n=e.documentElement,i="orientationchange"in window?"orientationchange":"resize",d=(/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream,function(){var t=n.clientWidth;t&&(t>=750?(t=750,e.body.style.width="750px"):e.body.style.width=t+"px",n.style.fontSize=100*(t/750)+"px",n.dataset.width=t,n.dataset.percent=100*(t/750))});d(),e.documentElement.classList.add("iosx"+t.devicePixelRatio),e.addEventListener&&t.addEventListener(i,d,!1)}(document,window)
 </script>
@@ -52,21 +63,83 @@ img{vertical-align: top}
         <!-- <img src="./img/pic2.jpg" width="100%" alt=""> -->
       </div>
       <div class="btn_wpr">
-        <a href="javascript:void(0)">点击参与</a><a href="javascript:void(0)">关注轻松筹</a>
+        <a id="toJoin" href="javascript:void(0)">点击参与</a>
+        <a id="attention" href="javascript:void(0)">关注轻松筹</a>
       </div>
     </div>
-    <script type="text/javascript">
-      !function(){
-        var wpr = document.querySelector('#wpr'),
-            cont = document.querySelectorAll('.container')[0],
-            img = new Image();
-            img.onload = function(){
-              img.setAttribute('width','100%');
-              wpr.appendChild(img);
-              cont.style.opacity = 1;
-            }
-            img.src = './img/pic2.jpg'
+    <div class="fixMask" style="display:none;">
+        <img src="./img/ecode.jpg" width="40%" alt="">
+    </div>
+<script type="text/javascript">
+!function(){
+  var wpr = document.querySelector('#wpr'),
+      cont = document.querySelectorAll('.container')[0],
+      img = new Image();
+      img.onload = function(){
+        img.setAttribute('width','100%');
+        wpr.appendChild(img);
+        cont.style.opacity = 1;
+      }
+      img.src = './img/pic2.jpg'
       }()
-    </script>
-  </body>
-  </html>
+
+</script>
+</body>
+<script type="text/javascript">
+!function(){
+  var ua = navigator.userAgent;
+  var obj = {};
+  obj.platform = {
+  	isAndroid: /Android;?[\s\/]+([\d.]+)?/.test(ua),
+  	isIOS: /(iPad|iPod|iPhone).*OS/.test(ua),
+  	isWeixin: /MicroMessenger/i.test(ua),
+  	isMobileQQ: /QQ\//i.test(ua),
+  	isQzone: /Qzone\//i.test(ua)
+  };
+  var TIMEOUT = 1500,
+      storeUrl = 'https://lnk0.com/easylink/ELBd0YJp'
+      b612HomePage = "https://b612.snowcam.cn/",
+      contentPath = "go?stickerId=83333&categoryId=20011&autoDownload=true",
+      b612Scheme = "b612cn://" + contentPath,
+      b612UniversalLink = "https://ul-b612.snowcam.cn/app/" + contentPath + "&storeURL=" + storeUrl;
+  var btn_join = document.querySelector('#toJoin');
+  document.addEventListener('DOMContentLoaded',function(){
+    if(obj.platform.isIOS){
+      btn_join.setAttribute('href',b612UniversalLink)
+    } else if(obj.platform.isAndroid){
+      btn_join.onclick = function(){
+        launchAndroid(b612Scheme, storeUrl, TIMEOUT);
+      }
+    } else{
+      btn_join.setAttribute("href", b612HomePage);
+    }
+  },false);
+  function launchAndroid(scheme, storeUrl, timeout) {
+  	var iframe = document.createElement("iframe");
+  	iframe.style.display = "none";
+  	iframe.src = scheme;
+  	document.body.appendChild(iframe);
+  	window.setTimeout(function() {
+  		document.body.removeChild(iframe);
+  	}, 0);
+  	window.setTimeout(function() {
+  		window.location = storeUrl;
+  	}, timeout);
+  }
+}()
+!function(){
+  var attention = document.querySelector('#attention'),
+      fixMask = document.querySelector('.fixMask'),
+      img = document.querySelector('.fixMask img');
+  attention.addEventListener('click',function(){
+    fixMask.style.display="";
+  },false)
+  fixMask.addEventListener('click',function(){
+    fixMask.style.display="none";
+  },false)
+  img.addEventListener('click',function(e){
+    e.stopPropagation();
+  },false)
+}()
+</script>
+</html>
