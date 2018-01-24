@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+  <meta charset= "UTF-8">
+  <title>QQ飞车 B612咔叽</title>
+<meta name= "author" content="lzd" >
+<meta name= "viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name= "format-detection" content= "telephone=no" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?24e21cea6b8b6bcfa760f23db9581dfb";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<style>
+/* reset */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,figure,figcaption,small,button,input,textarea,th,td,s{margin:0;padding:0}
+input[type=number]
+::-webkit-inner-spin-button,input[type=number]
+::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+address,cite,dfn,em,var{font-style:normal}
+h1,h2,h3,h4,h5{font-weight: 400;}
+ul,ol{list-style:none}
+a{text-decoration:none;color:inherit}
+a:hover{text-decoration:npne}
+a:focus,button:focus,input:focus{outline:none;}
+q:before,q:after{content:''}legend{color:#000}fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0}
+.clearfix{display:block}.clearfix:after{content:'';display:block;clear:both;overflow:hidden;line-height:0}
+.clear{clear:both;height:0;line-height: 0;overflow: hidden;}
+html{-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+body {-webkit-tap-highlight-color: rgba(0,0,0,0);margin:0 auto;
+font-size: .24rem;color:#999;line-height:1;-webkit-touch-callout:none;
+font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+background-color:#fff;}
+.box{box-sizing:border-box;}
+.p-r{position: relative;}
+.p-a{position: absolute;}
+.f-l{float:left;display: inline;}
+.f-r{float:right;display: inline;}
+.text-l{text-align:left}.text-r{text-align:right}.text-c{text-align:center}
+img{vertical-align: top}
+.bg-f{background-color: #fff;}
+.btn_wpr{display: flex;align-items: center;justify-content: space-around;box-sizing: border-box;padding:.46rem .1rem .7rem;}
+.btn_wpr a{width:50.66%;line-height:1.04rem;text-align: center;background-color: #14bfaf;font-size: .4rem;color:#fff;border-radius: 40px;}
+/* .btn_wpr a:nth-child(1){background-color: #009b4d;} */
+.container{transition: all .5s;-webkit-transition: all .5s;backgroun-color:red;width:100%;max-width: 750px;margin:auto;}
+  </style>
+  </head>
+<body>
+<script>
+!function(e,t){var n=e.documentElement,i="orientationchange"in window?"orientationchange":"resize",d=(/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream,function(){var t=n.clientWidth;t&&(t>=750?(t=750,e.body.style.width="750px"):e.body.style.width=t+"px",n.style.fontSize=100*(t/750)+"px",n.dataset.width=t,n.dataset.percent=100*(t/750))});d(),e.documentElement.classList.add("iosx"+t.devicePixelRatio),e.addEventListener&&t.addEventListener(i,d,!1)}(document,window)
+</script>
+    <div class= "container p-r" style="opacity:0">
+      <div id="wpr">
+        <img src="./img/pic1.jpg" width="100%" alt="">
+        <!-- <img src="./img/pic2.jpg" width="100%" alt=""> -->
+      </div>
+      <div class="btn_wpr">
+        <a id="toJoin" href="javascript:void(0)">使用B612咔叽</a>
+      </div>
+    </div>
+<script type="text/javascript">
+!function(){
+  var wpr = document.querySelector('#wpr'),
+      cont = document.querySelectorAll('.container')[0],
+      img = new Image();
+      img.onload = function(){
+        img.setAttribute('width','100%');
+        wpr.appendChild(img);
+        cont.style.opacity = 1;
+      }
+      img.src = './img/pic2.jpg'
+      }()
+
+</script>
+</body>
+<script type="text/javascript">
+!function(){
+  var ua = navigator.userAgent;
+  var obj = {};
+  obj.platform = {
+  	isAndroid: /Android;?[\s\/]+([\d.]+)?/.test(ua),
+  	isIOS: /(iPad|iPod|iPhone).*OS/.test(ua),
+  	isWeixin: /MicroMessenger/i.test(ua),
+  	isMobileQQ: /QQ\//i.test(ua),
+  	isQzone: /Qzone\//i.test(ua)
+  };
+  var TIMEOUT = 1500,
+      storeUrl = 'https://lnk0.com/easylink/ELBd0YJp'
+      b612HomePage = "https://b612.snowcam.cn/",
+      contentPath = "go?stickerId=83333&categoryId=20011&autoDownload=true",
+      b612Scheme = "b612cn://" + contentPath,
+      b612UniversalLink = "https://ul-b612.snowcam.cn/app/" + contentPath + "&storeURL=" + storeUrl;
+  var btn_join = document.querySelector('#toJoin');
+  document.addEventListener('DOMContentLoaded',function(){
+    if(obj.platform.isIOS){
+      btn_join.setAttribute('href',b612UniversalLink)
+    } else if(obj.platform.isAndroid){
+      btn_join.onclick = function(){
+        launchAndroid(b612Scheme, storeUrl, TIMEOUT);
+      }
+    } else{
+      btn_join.setAttribute("href", b612HomePage);
+    }
+  },false);
+  function launchAndroid(scheme, storeUrl, timeout) {
+  	var iframe = document.createElement("iframe");
+  	iframe.style.display = "none";
+  	iframe.src = scheme;
+  	document.body.appendChild(iframe);
+  	window.setTimeout(function() {
+  		document.body.removeChild(iframe);
+  	}, 0);
+  	window.setTimeout(function() {
+  		window.location = storeUrl;
+  	}, timeout);
+  }
+}()
+</script>
+</html>
