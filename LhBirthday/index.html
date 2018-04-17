@@ -148,28 +148,31 @@ img{vertical-align: top}
 
   var btn_join = document.querySelector('#toJoin');
   document.addEventListener('DOMContentLoaded',function(){
-
     btn_join.onclick = function(){
       var b612Bridge = B612Kaji.Native.Interface.getInstance();
-      b612Bridge.appInfo(function(result){
-        var appInfo = JSON.parse(result);
+      var isAndroidinside = obj.platform.isAndroid?!!(window.B612KajiBridgeInterface):true;
+      var appInfo = !!(b612Bridge.api.appInfo);
+      isAndroidinside && appInfo && b612Bridge.appInfo(function(result){
         window.location.href=b612Scheme;
-        return;
+        return false;
       });
-      setTimeout(function(){
+
+      isAndroidinside && !appInfo && function(result){
+        window.location.href=b612Scheme;
+        return false;
+      }();
+
         if(obj.platform.isIOS){
-          // alert(!!(B612Kaji.Native.android.Function.getInstance() || B612Kaji.Native.ios.Function.getInstance()))
-          // btn_join.setAttribute('href',b612UniversalLink)
-          return;
-          window.location.href= b612UniversalLink
+          window.location.href= b612UniversalLink;
         } else if(obj.platform.isAndroid){
-          btn_join.onclick = function(){
-            launchAndroid(b612Scheme, storeUrl, TIMEOUT);
-          }
+          // btn_join.onclick = function(){
+          //   launchAndroid(b612Scheme, storeUrl, TIMEOUT);
+          //   // window.location.href=b612UniversalLink;
+          // }
+          launchAndroid(b612Scheme, storeUrl, TIMEOUT);
         } else{
           btn_join.setAttribute("href", b612HomePage);
         }
-      },0)
 
     }
 
@@ -189,7 +192,7 @@ img{vertical-align: top}
 }()
 </script>
 
-<script src="http://b612kaji-static.snowcam.cn/static/event/sky_segmentation/js/bridge_ios.js"></script>
-<script src="http://b612kaji-static.snowcam.cn/static/event/sky_segmentation/js/bridge_android.js"></script>
-<script src="http://b612kaji-static.snowcam.cn/static/event/sky_segmentation/js/bridge_interface.js"></script>
+<script src="./js/bridge_ios.js"></script>
+<script src="./js/bridge_android.js"></script>
+<script src="./js/bridge_interface.js"></script>
 </html>
