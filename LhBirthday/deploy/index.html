@@ -6,15 +6,15 @@
 <meta name= "author" content="lzd" >
 <meta name= "viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name= "format-detection" content= "telephone=no" />
-<!-- <script>
+<script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?24e21cea6b8b6bcfa760f23db9581dfb";
+  hm.src = "https://hm.baidu.com/hm.js?8027374eaeeb481734ea5481388341b6";
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
-</script> -->
+</script>
 <style>
 /* reset */
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,figure,figcaption,small,button,input,textarea,th,td,s{margin:0;padding:0}
@@ -140,10 +140,10 @@ img{vertical-align: top}
   	isQzone: /Qzone\//i.test(ua)
   };
   var TIMEOUT = 1500,
-      storeUrl = 'https://lnk0.com/easylink/ELx5Uh48',
+      storeUrl = 'https://lnk0.com/easylink/ELElAdg0',
       b612HomePage = "https://b612.snowcam.cn/",
-      contentPath = "go?stickerId=84576&categoryId=20052&autoDownload=true",
-      b612Scheme = "b612cnb://" + contentPath,
+      contentPath = "go?stickerId=84570&categoryId=20011&autoDownload=true",
+      b612Scheme = "b612cn://" + contentPath,
       b612UniversalLink = "https://ul-b612.snowcam.cn/app/" + contentPath + "&storeURL=" + storeUrl;
 
   var btn_join = document.querySelector('#toJoin');
@@ -156,24 +156,17 @@ img{vertical-align: top}
         window.location.href=b612Scheme;
         return false;
       });
-
       isAndroidinside && !appInfo && function(result){
         window.location.href=b612Scheme;
         return false;
       }();
-
-        if(obj.platform.isIOS){
-          window.location.href= b612UniversalLink;
-        } else if(obj.platform.isAndroid){
-          // btn_join.onclick = function(){
-          //   launchAndroid(b612Scheme, storeUrl, TIMEOUT);
-          //   // window.location.href=b612UniversalLink;
-          // }
-          launchAndroid(b612Scheme, storeUrl, TIMEOUT);
-        } else{
-          btn_join.setAttribute("href", b612HomePage);
-        }
-
+      if(obj.platform.isIOS){
+        window.location.href= b612UniversalLink;
+      } else if(obj.platform.isAndroid){
+        launchAndroid(b612Scheme, storeUrl, TIMEOUT);
+      } else{
+        btn_join.setAttribute("href", b612HomePage);
+      }
     }
 
   },false);
