@@ -1,0 +1,28 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,figure,figcaption,small,button,input,textarea,th,td,s{margin:0;padding:0}
+input[type=number]
+::-webkit-inner-spin-button,input[type=number]
+::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+address,em,var{font-style:normal}
+h1,h2,h3,h4,h5{font-weight: 400;}
+ul,ol{list-style:none}
+a{text-decoration:none;color:inherit}
+a:hover{text-decoration:none}
+a:focus,button:focus,input:focus{outline:none;}
+q:before,q:after{content:''}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0}
+.clearfix{display:block}.clearfix:after{content:'';display:block;clear:both;overflow:hidden;line-height:0}
+.clear{clear:both;height:0;line-height: 0;overflow: hidden;}
+html{
+  -ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+}
+.box{box-sizing:border-box;}
+.p-r{position: relative;}
+.p-a{position: absolute;}
+.f-l{float:left;display: inline;}
+.f-r{float:right;display: inline;}
+img{vertical-align: top}
+.bg-f{background-color: #fff;}
+.t-c{text-align: center;}
